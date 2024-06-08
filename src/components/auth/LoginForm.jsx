@@ -19,7 +19,7 @@ const LoginForm = () => {
         router.push("/bookings")
       }
     } catch (error) {
-      set(error.message)
+      setError(error.message)
     }
   }
 

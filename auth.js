@@ -4,6 +4,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "@/database/queries/mongoClientPromise";
 import { userModel } from "@/database/models/user-model";
+import bcrypt from "bcryptjs";
 
 export const {
     handlers: {GET , POST},
@@ -15,6 +16,9 @@ NextAuth({
     adapter: MongoDBAdapter(clientPromise, {
         databaseName: process.env.ENVIRONMENT
     }),
+    session: {
+        strategy: 'jwt'
+    },
     providers: [
         CredentialsProvider({
             credentials: {
@@ -31,7 +35,15 @@ NextAuth({
                     const user = await userModel.findOne({email: credentials.email});
                     if(user){
                         try {
-                            const isMatch = user.email === credentials.email;
+                            // const isMatch = user.email === credentials.email;
+
+                            // bcrypt compare user jeh password type kore oitare bcrypt kore database hash password ar shate match kore
+                            
+                            const isMatch = await bcrypt.compare(
+                                credentials.password,
+                                user.password
+                            );
+
                             if(isMatch){
                                 return user;
                             } else {
