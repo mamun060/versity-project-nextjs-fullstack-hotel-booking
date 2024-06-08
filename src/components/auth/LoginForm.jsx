@@ -1,6 +1,37 @@
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { login } from "@/app/actions";
+
+
 const LoginForm = () => {
+  const [error, setError] = useState("");
+  const router = useRouter();
+  
+  async function onSubmit(e){
+    e.preventDefault();
+    try {
+      const formData = new FormData(e.currentTarget);
+      const res = await login(formData);
+      if(!!res.error){
+        setError(res.error);
+      } else {
+        router.push("/bookings")
+      }
+    } catch (error) {
+      set(error.message)
+    }
+  }
+
   return (
-    <form className="login-form">
+    <>
+    {
+      error && (
+        <div className=" text-xl text-red-500 text-center">{error}</div>
+      )
+    }
+
+    <form className="login-form" onSubmit={onSubmit}>
       <div>
         <label htmlFor="email">Email Address</label>
         <input type="email" name="email" id="email" />
@@ -15,6 +46,7 @@ const LoginForm = () => {
         Login
       </button>
     </form>
+    </>
   );
 };
 
