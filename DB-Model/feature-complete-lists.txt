@@ -1,0 +1,8 @@
+University E-Booking Application Feature Completed Listed below:
+
+01. Analysis Project feature
+02. Design project Database
+03. Setup NextAuth and OAuth with Facebook and Google Social Login Feature
+04. Implement credential based User Registration and Login
+05. Show Authenticated User Profile Details
+06. Implemented Protected Route for security

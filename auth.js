@@ -6,6 +6,7 @@ import clientPromise from "@/database/queries/mongoClientPromise";
 import { userModel } from "@/database/models/user-model";
 import bcrypt from "bcryptjs";
 
+
 export const {
     handlers: {GET , POST},
     auth,
