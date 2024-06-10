@@ -1,7 +1,7 @@
 const Dashboard = () => {
     return ( 
         <>
-        This is Admin Dashboard Page Layout
+        This is Admin Dashboard Page
         </>
      );
 }
