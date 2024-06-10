@@ -3,12 +3,16 @@ import { getAllHOtels } from "@/database/queries/hotels";
 
 const HotelList = async () => {
   const allhotels = await getAllHOtels();
-  // console.log(allhotels);
+  console.log(allhotels);
 
   return (
     <div className="col-span-9">
       <div className="space-y-4">
-       <HotelCard />
+        {
+          allhotels.map((hotel)=>(
+            <HotelCard key={hotel.id} hotelInfo={hotel} />
+          ))
+        }
       </div>
     </div>
   );
