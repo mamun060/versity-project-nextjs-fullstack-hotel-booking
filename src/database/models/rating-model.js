@@ -1,4 +1,5 @@
 import mongoose,{Schema} from "mongoose";
+import { ObjectId } from "mongodb";
 
 const ratingSchema = new Schema({
     hotelId: {
@@ -13,6 +14,6 @@ const ratingSchema = new Schema({
         required: true,
         type: Number
     },
-})
+});
 
 export const ratingModel = mongoose.models.ratings ?? mongoose.model("ratings", ratingSchema);
