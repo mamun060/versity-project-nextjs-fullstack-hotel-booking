@@ -54,7 +54,7 @@
   .imageshowCase img {
     @apply h-full min-h-full w-full min-w-full object-cover;
   }
-
+ 
   .login-form {
     @apply flex flex-col my-6;
   }
@@ -69,5 +69,9 @@
 
   input[type="checkbox"] {
     @apply mx-1
+  }
+
+  button:disabled {
+    @apply bg-gray-500 cursor-default
   }
 }
