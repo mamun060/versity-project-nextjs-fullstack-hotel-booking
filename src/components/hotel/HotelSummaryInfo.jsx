@@ -1,9 +1,17 @@
 import Link from "next/link";
 import HotelRating from "./HotelRating";
 import HotelReviewNubmer from "./HotelReviewNumber";
+import { findBooking } from "@/database/queries/hotels";
+import { getAllBooking } from "@/database/queries/bookings";
 
-const HotelSummaryInfo = ({fromListPage, hotelInfo}) => {
+const HotelSummaryInfo = async ({fromListPage, hotelInfo}) => {
+  // const booking = await findBooking("66263526f50c2e548501f285", "2024-06-26", "2024-06-29");
+  const booking = await getAllBooking();
+  console.log(booking);
 
+
+
+  
   return (
     <>
       <div className={fromListPage ? "flex-1" : "flex-1 container"}>
@@ -12,6 +20,11 @@ const HotelSummaryInfo = ({fromListPage, hotelInfo}) => {
         <div className="flex gap-2 items-center my-4">
           <HotelRating id={hotelInfo?.id} />
           <HotelReviewNubmer id={hotelInfo?.id} />
+          {
+            hotelInfo?.isBooked && <span>Sold Out</span>
+          }
+          {/* <span>Sold Out</span> */}
+          
         </div>
           <div>
             <span className=" bg-yellow-400 p-1 rounded-sm shadow-md">{hotelInfo?.propertyCategory} Star Property</span>

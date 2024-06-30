@@ -69,6 +69,7 @@ const Search = ({fromList, destination, checkin , checkout }) => {
                 <option value="Palermo">Palermo</option>
                 <option value="Frejus">Frejus</option>
                 <option value="Paris">Paris</option>
+                <option value="Cergy">Cergy</option>
               </select>
             </h4>
           </div>

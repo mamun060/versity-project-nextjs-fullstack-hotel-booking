@@ -1,8 +1,10 @@
 import HotelCard from "./HotelCard";
-import { getAllHOtels } from "@/database/queries/hotels";
+import { getAllHOtels, getAllHOtelsBySearchFilter } from "@/database/queries/hotels";
 
-const HotelList = async () => {
-  const allhotels = await getAllHOtels();
+const HotelList = async ({ destination, checkin, checkout }) => {
+  // const allhotels = await getAllHOtels();
+  const allhotels = await getAllHOtelsBySearchFilter(destination, checkin, checkout);
+
   console.log(allhotels);
 
   return (
