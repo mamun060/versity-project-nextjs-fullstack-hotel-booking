@@ -1,17 +1,14 @@
 import Link from "next/link";
 import HotelRating from "./HotelRating";
 import HotelReviewNubmer from "./HotelReviewNumber";
-import { findBooking } from "@/database/queries/hotels";
-import { getAllBooking } from "@/database/queries/bookings";
-
-const HotelSummaryInfo = async ({fromListPage, hotelInfo}) => {
-  // const booking = await findBooking("66263526f50c2e548501f285", "2024-06-26", "2024-06-29");
-  const booking = await getAllBooking();
-  console.log(booking);
 
 
+const HotelSummaryInfo = async ({fromListPage, hotelInfo, checkin , checkout}) => {
+  let params = "";
+  if( checkin && checkout){
+    params = `?checkin=${checkin}&checkout=${checkout}`;
+  }
 
-  
   return (
     <>
       <div className={fromListPage ? "flex-1" : "flex-1 container"}>
@@ -21,7 +18,7 @@ const HotelSummaryInfo = async ({fromListPage, hotelInfo}) => {
           <HotelRating id={hotelInfo?.id} />
           <HotelReviewNubmer id={hotelInfo?.id} />
           {
-            hotelInfo?.isBooked && <span>Sold Out</span>
+            hotelInfo?.isBooked && <span className=" bg-red-700 text-white py-1 px-2 rounded-md shadow font-semibold">Sold Out</span>
           }
           {/* <span>Sold Out</span> */}
           
@@ -35,8 +32,8 @@ const HotelSummaryInfo = async ({fromListPage, hotelInfo}) => {
         <h2 className="text-2xl font-bold text-right">${(hotelInfo?.highRate + hotelInfo?.lowRate) / 2} /night</h2>
         <p className=" text-right">Per Night for 1 Room</p>
         {
-          fromListPage ? (<Link href={`/hotels/${hotelInfo?.id}`} className="btn-primary ">Details</Link>) 
-          : (<button className="btn-primary ">Book</button>)
+          fromListPage ? (<Link href={`/hotels/${hotelInfo?.id}${params}`} className="btn-primary ">Details</Link>) 
+          : (<button className={hotelInfo?.isBooked ? 'btn-disabled' : 'btn-primary'}>Book</button>)
         }
       </div>
     </>

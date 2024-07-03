@@ -1,11 +1,33 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams ,usePathname , useRouter } from "next/navigation";
+// import { allCities } from "@/database/queries/hotels";
 
 const Search = ({fromList, destination, checkin , checkout }) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const {replace} = useRouter();
+  const [cities, setCities] = useState([]);
+
+  useEffect(() => {
+    const fetchCities = async () => {
+      try {
+        const response = await fetch('/api/allcities');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const citiesData = await response.json();
+        setCities(citiesData);
+      } catch (error) {
+        console.error('Error fetching cities:', error);
+      }
+    };
+
+    fetchCities();
+  }, []);
+
+
+  console.log(cities);
 
   const [searchTerm, setSearchTerm] = useState({
     'destination': destination || 'Puglia',
@@ -64,12 +86,15 @@ const Search = ({fromList, destination, checkin , checkout }) => {
                 defaultValue={searchTerm.destination}
                 onChange={handleInput}
               >
-                <option value="Puglia">Puglia</option>
+                {cities.map((city) => (
+                  <option key={city.id} value={city.city}>{city.city}</option>
+                ))}
+                {/* <option value="Puglia">Puglia</option>
                 <option value="Catania">Cantania</option>
                 <option value="Palermo">Palermo</option>
                 <option value="Frejus">Frejus</option>
                 <option value="Paris">Paris</option>
-                <option value="Cergy">Cergy</option>
+                <option value="Cergy">Cergy</option> */}
               </select>
             </h4>
           </div>
