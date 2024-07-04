@@ -26,9 +26,6 @@ const Search = ({fromList, destination, checkin , checkout }) => {
     fetchCities();
   }, []);
 
-
-  console.log(cities);
-
   const [searchTerm, setSearchTerm] = useState({
     'destination': destination || 'Puglia',
     'checkin': checkin,
@@ -69,9 +66,6 @@ const Search = ({fromList, destination, checkin , checkout }) => {
     }
     
   }
-
-  console.log(searchTerm)
-
 
   return (
     <>

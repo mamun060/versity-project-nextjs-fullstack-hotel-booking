@@ -8,7 +8,11 @@ const HotelDetailsPage = async ({params: {id}, searchParams: {checkin, checkout}
 
   return (
     <>
-        <Summary hotelInfo={hotelInfo} />
+        <Summary 
+          hotelInfo={hotelInfo} 
+          checkin={checkin} 
+          checkout={checkout} 
+        />
         <Gallery thumbnail={hotelInfo?.thumbNailUrl} gallery={hotelInfo?.gallery} />
         <Overview overview={hotelInfo?.overview} />
     </>

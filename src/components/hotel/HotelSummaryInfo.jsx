@@ -2,9 +2,9 @@ import Link from "next/link";
 import HotelRating from "./HotelRating";
 import HotelReviewNubmer from "./HotelReviewNumber";
 
-
-const HotelSummaryInfo = async ({fromListPage, hotelInfo, checkin , checkout}) => {
+const HotelSummaryInfo = async ({fromListPage, hotelInfo, checkin , checkout }) => {
   let params = "";
+
   if( checkin && checkout){
     params = `?checkin=${checkin}&checkout=${checkout}`;
   }
@@ -33,7 +33,12 @@ const HotelSummaryInfo = async ({fromListPage, hotelInfo, checkin , checkout}) =
         <p className=" text-right">Per Night for 1 Room</p>
         {
           fromListPage ? (<Link href={`/hotels/${hotelInfo?.id}${params}`} className="btn-primary ">Details</Link>) 
-          : (<button className={hotelInfo?.isBooked ? 'btn-disabled' : 'btn-primary'}>Book</button>)
+          : (
+          <Link 
+            href={hotelInfo?.isBooked ? "#" : `/hotels/${hotelInfo.id}/payment${params}`} 
+            className={hotelInfo?.isBooked ? 'btn-disabled' : 'btn-primary'}>
+            Book
+          </Link>)
         }
       </div>
     </>
