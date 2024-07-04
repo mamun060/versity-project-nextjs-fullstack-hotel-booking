@@ -1,0 +1,23 @@
+[
+    {
+        "_id": "667fc1eaefb976a1be92a5ab",
+        "hotelId": "66263526f50c2e548501f285",
+        "userId": "6663ef08ca3e50ccf46d144e",
+        "checkin": "2024-06-26",
+        "checkout": "2024-06-29"
+    },
+    {
+        "_id": "667fc1eaefb976a1be92a5ac",
+        "hotelId": "66263526f50c2e548501f285",
+        "userId": "6663ef08ca3e50ccf46d144f",
+        "checkin": "2024-07-01",
+        "checkout": "2024-07-03"
+    },
+    {
+        "_id": "667fc1eaefb976a1be92a5ad",
+        "hotelId": "66263526f50c2e548501f286",
+        "userId": "6663ef08ca3e50ccf46d1450",
+        "checkin": "2024-06-26",
+        "checkout": "2024-06-29"
+    }
+];
