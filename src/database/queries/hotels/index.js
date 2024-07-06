@@ -57,7 +57,7 @@ export async function findBooking(hotelId, checkin , checkout) {
   return found;
 }
 
-export async function getAllHOtelsBySearchFilter(destination, checkin, checkout){
+export async function getAllHOtelsBySearchFilter(destination, checkin, checkout, category){
   const regex = new RegExp(destination, "i");
   const hotelsByDestination = await hotelModel
       .find({ city: { $regex: regex } })
@@ -65,6 +65,15 @@ export async function getAllHOtelsBySearchFilter(destination, checkin, checkout)
       .lean();
 
   let allHotels = hotelsByDestination;
+
+  // check category wise filtered data 
+  if(category){
+    const categoriesToMatch = category.split('|');
+    // filter allhotels for find category matches hotel 
+    allHotels.filter((hotel)=> {
+      return categoriesToMatch.includes(hotel.propertyCategory.toString());
+    })
+  }
 
   if (checkin && checkout) {
 

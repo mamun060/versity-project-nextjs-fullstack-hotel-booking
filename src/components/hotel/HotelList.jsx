@@ -1,9 +1,8 @@
 import HotelCard from "./HotelCard";
 import { getAllHOtelsBySearchFilter } from "@/database/queries/hotels";
 
-const HotelList = async ({ destination, checkin, checkout }) => {
-  const allhotels = await getAllHOtelsBySearchFilter(destination, checkin, checkout);
-
+const HotelList = async ({ destination, checkin, checkout , category }) => {
+  const allhotels = await getAllHOtelsBySearchFilter(destination, checkin, checkout, category);
   return (
     <div className="col-span-9">
       <div className="space-y-4">
