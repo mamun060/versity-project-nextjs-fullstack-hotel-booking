@@ -1,6 +1,6 @@
 "use client";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useState , useEffect } from "react";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
 const FilterByStarCategory = () => {
     const [query, setQuery] = useState([]);
@@ -32,7 +32,7 @@ const FilterByStarCategory = () => {
             const queryInCategory = decodedCategory.split("|");
             setQuery(queryInCategory);
         }
-    }, [])
+    }, [params])
 
     // handleChange work on time
     useEffect(()=>{
