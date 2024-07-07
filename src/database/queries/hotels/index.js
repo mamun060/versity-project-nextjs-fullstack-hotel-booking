@@ -70,7 +70,7 @@ export async function getAllHOtelsBySearchFilter(destination, checkin, checkout,
   if(category){
     const categoriesToMatch = category.split('|');
     // filter allhotels for find category matches hotel 
-    allHotels.filter((hotel)=> {
+    allHotels =allHotels.filter( hotel=> {
       return categoriesToMatch.includes(hotel.propertyCategory.toString());
     })
   }

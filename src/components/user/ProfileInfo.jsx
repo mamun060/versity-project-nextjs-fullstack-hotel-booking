@@ -19,7 +19,7 @@ const ProfileInfo = async () => {
           />
         </div>
           ) : (
-            session?.user?.name.charAt(0)?.toUpperCase()
+            session?.user?.name?.charAt(0)?.toUpperCase()
           )
         }
       </div> 

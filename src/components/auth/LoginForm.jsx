@@ -13,6 +13,7 @@ const LoginForm = () => {
     try {
       const formData = new FormData(e.currentTarget);
       const res = await login(formData);
+
       if(!!res.error){
         setError(res.error);
       } else {
