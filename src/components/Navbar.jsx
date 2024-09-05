@@ -19,19 +19,19 @@ const Navbar =  async ({sideMenu = true}) => {
     {
       sideMenu && (
       <ul>
-        <li>
+        <li className=" shadow px-4 py-2 rounded-sm">
           <Link href="/blog">Recommended Places</Link>
         </li>
 
-        <li>
+        <li className=" shadow px-4 py-2 rounded-sm">
           <Link href="/about">About Us</Link>
         </li>
 
-        <li>
+        <li className=" shadow px-4 py-2 rounded-sm">
           <Link href="/contact">Contact us</Link>
         </li>
 
-        <li>
+        <li className=" shadow px-4 py-2 rounded-sm">
           <Link href="/bookings">Bookings</Link>
         </li>
         <li> 
