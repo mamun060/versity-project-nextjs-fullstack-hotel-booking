@@ -20,7 +20,7 @@ const Navbar =  async ({sideMenu = true}) => {
       sideMenu && (
       <ul>
         <li>
-          <Link href="#">Recommended Places</Link>
+          <Link href="/blog">Recommended Places</Link>
         </li>
 
         <li>
