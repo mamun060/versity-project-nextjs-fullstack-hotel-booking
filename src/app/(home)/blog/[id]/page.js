@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const blogPosts = [
     {
       id: 1,
@@ -63,7 +65,7 @@ export default function BlogDetails({params}) {
   return (
         <div className="bg-gray-100 min-h-screen flex items-center justify-center">
         <div className="max-w-4xl w-full mx-4 lg:mx-0 py-12 px-4 bg-white shadow-lg rounded-lg overflow-hidden">
-        <img src={`../${blogPost.imageUrl}`} className="w-full h-64 object-cover" />
+        <Image src={`../${blogPost.imageUrl}`} alt={blogPost.title || 'Decorative image'} width={640} height={256} className="w-full h-64 object-cover" />
         <div className="p-8">
             <p className="text-gray-500 mb-8 text-center">{blogPost.date}</p>
             <h1 className="text-4xl font-bold mb-4 text-center">{blogPost.title}</h1>

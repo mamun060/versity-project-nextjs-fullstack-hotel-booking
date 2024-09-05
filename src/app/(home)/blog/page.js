@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 const blogPosts = [
@@ -60,7 +61,7 @@ export default function Blog() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
             <div key={post.id} className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <img src={post.imageUrl} alt={post.title} className="w-full h-48 object-cover"/>
+              <Image src={post.imageUrl} alt={blogPost.title} width={640} height={256} className="w-full h-64 object-cover" />
               <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-2">{post.title}</h2>
                 <p className="text-gray-600 mb-4">{post.description}</p>

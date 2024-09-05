@@ -37,7 +37,7 @@ export default function Home() {
                     </p>
                     </div>
                     <div className="bg-[#F9F9F9] p-6 rounded-lg shadow-lg">
-                    <h3 className="text-xl font-semibold mb-4">Spa & Wellness</h3>
+                    <h3 className="text-xl font-semibold mb-4">Spa and Wellness</h3>
                     <p className="text-gray-600">
                         Relax and rejuvenate with our world-class spa and wellness treatments.
                     </p>
@@ -53,19 +53,19 @@ export default function Home() {
                 <div className="flex flex-col lg:flex-row lg:space-x-8">
                     <div className="bg-white p-6 rounded-lg shadow-lg mb-6 lg:mb-0 flex-1">
                     <blockquote className="text-gray-700">
-                        <p>"The best hotel experience I've ever had! The rooms were luxurious, and the service was impeccable."</p>
+                        <p>The best hotel experience I have ever had! The rooms were luxurious, and the service was impeccable.</p>
                         <footer className="mt-4 text-gray-600">— John Doe</footer>
                     </blockquote>
                     </div>
                     <div className="bg-white p-6 rounded-lg shadow-lg mb-6 lg:mb-0 flex-1">
                     <blockquote className="text-gray-700">
-                        <p>"I loved the spa and wellness center. It was the perfect way to unwind after a day of exploring."</p>
+                        <p>I loved the spa and wellness center. It was the perfect way to unwind after a day of exploring.</p>
                         <footer className="mt-4 text-gray-600">— Jane Smith</footer>
                     </blockquote>
                     </div>
                     <div className="bg-white p-6 rounded-lg shadow-lg flex-1">
                     <blockquote className="text-gray-700">
-                        <p>"Fantastic dining experience! The food was amazing, and the ambiance was perfect."</p>
+                        <p>Fantastic dining experience! The food was amazing, and the ambiance was perfect.</p>
                         <footer className="mt-4 text-gray-600">— Mark Johnson</footer>
                     </blockquote>
                     </div>
