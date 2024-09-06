@@ -41,7 +41,7 @@ const Navbar =  async ({sideMenu = true}) => {
         {
           session?.user ? (
             <div>
-              <span className=" mx-1">{session?.user?.name}</span>
+              <span className=" mx-1 bg-orange-500 text-white rounded-2xl shadow-lg py-2 px-2">{session?.user?.name}</span>
               <span> | </span>
               <span>
                 <Logout />

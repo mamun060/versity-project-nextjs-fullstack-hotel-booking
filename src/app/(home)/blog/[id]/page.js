@@ -60,18 +60,19 @@ export default function BlogDetails({params}) {
       return <p>Blog post not found.</p>;
     }
 
-  console.log();
   
   return (
-        <div className="bg-gray-100 min-h-screen flex items-center justify-center">
-        <div className="max-w-4xl w-full mx-4 lg:mx-0 py-12 px-4 bg-white shadow-lg rounded-lg overflow-hidden">
-        <Image src={blogPost.imageUrl} alt={blogPost.title || 'Decorative image'} width={640} height={256} className="w-full h-64 object-cover" />
-        <div className="p-8">
-            <p className="text-gray-500 mb-8 text-center">{blogPost.date}</p>
-            <h1 className="text-4xl font-bold mb-4 text-center">{blogPost.title}</h1>
-            <p className="text-gray-700 leading-relaxed">{blogPost.description}</p>
-        </div>
-        </div>
-    </div>
+    <section>
+      <div className="bg-gray-100 min-h-screen flex items-center justify-center pt-40">
+          <div className="max-w-4xl w-full mx-4 lg:mx-0 py-12 px-4 bg-white shadow-lg rounded-lg overflow-hidden">
+          <Image src={blogPost.imageUrl} alt={blogPost.title || 'Decorative image'} width={640} height={256} className="w-full h-64 object-cover" />
+          <div className="p-8">
+              <p className="text-gray-500 mb-8 text-center">{blogPost.date}</p>
+              <h1 className="text-4xl font-bold mb-4 text-center">{blogPost.title}</h1>
+              <p className="text-gray-700 leading-relaxed">{blogPost.description}</p>
+          </div>
+          </div>
+      </div>
+    </section>
   );
 }
